@@ -4,7 +4,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <footer>
-        &copy; 2018 <a href="/">perfection.tv</a>
+        &copy; 2018 <a href="/">dps visualiser</a>
       </footer>
     );
   }
