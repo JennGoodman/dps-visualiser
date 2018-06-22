@@ -1,0 +1,87 @@
+{
+  "name": "dps-visualiser",
+  "version": "0.0.1",
+  "description": "Source code for dps-visualiser",
+  "repository": "http://www.github.com/perfectioncsgo/dps-visualiser",
+  "author": "Davide Nguyen",
+  "license": "MIT",
+  "scripts": {
+    "dev": "yarn clean && parcel ./src/index.html --open --out-dir artifacts/dist",
+    "test": "yarn eslint-check && yarn eslint && yarn prettier && yarn jest --coverage",
+    "clean": "rimraf artifacts",
+    "jest": "jest",
+    "coverage": "jest --coverage",
+    "dist": "yarn clean && parcel build ./src/index.html --out-dir artifacts/dist",
+    "prettier": "prettier --list-different \"./**/*.{tsx,less}\"",
+    "prettier-format": "prettier --write \"./**/*.{tsx,less}\"",
+    "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
+    "eslint": "eslint \"./**/*.{tsx}\"",
+    "eslint-fix": "eslint --fix \"./**/*.{tsx}\""
+  },
+  "dependencies": {
+    "jest-junit": "^5.1.0",
+    "mobx": "^5.0.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/jest": "^23.1.1",
+    "@types/react": "^16.4.1",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-hot-loader": "^4.1.0",
+    "@types/react-router-dom": "^4.2.7",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.9.1",
+    "eslint-plugin-typescript": "^0.12.0",
+    "jest": "^23.1.0",
+    "jest-enzyme": "^6.0.2",
+    "parcel-bundler": "^1.9.2",
+    "prettier": "^1.13.5",
+    "react-hot-loader": "^4.3.3",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.9.2",
+    "typescript-eslint-parser": "^16.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "tsx"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "setupFiles": [
+      "./tests/setupTests.tsx"
+    ],
+    "testRegex": "/tests/.*.Test.tsx$",
+    "reporters": [
+      "jest-junit"
+    ],
+    "coverageDirectory": "./artifacts/coverage/",
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "src/**/*.tsx"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "src/index.tsx"
+    ]
+  },
+  "jest-junit": {
+    "suiteName": "perfection-tv tests",
+    "output": "./artifacts/test-results/Jest/test-results.xml"
+  }
+}

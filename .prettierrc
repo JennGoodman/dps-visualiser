@@ -1,0 +1,12 @@
+{
+  "printWidth": 120,
+  "singleQuote": true,
+  "jsxBracketSameLine": true,
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": [".prettierrc", ".eslintrc", ".babelrc"],
+      "options": { "parser": "json" }
+    }
+  ]
+}
