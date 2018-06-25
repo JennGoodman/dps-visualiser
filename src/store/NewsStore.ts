@@ -1,26 +1,26 @@
 import { observable } from 'mobx';
-import { AppStore } from './';
+import { DomainStore } from './';
 import { NewsItem } from './../models';
 
 export default class NewsStore {
-  appStore: AppStore;
+  domainStore: DomainStore;
   @observable isLoading: boolean = false;
   @observable news: NewsItem[] = [];
 
-  constructor(appStore: AppStore) {
-    this.appStore = appStore;
+  constructor(domainStore: DomainStore) {
+    this.domainStore = domainStore;
     this.loadNews();
   }
   async loadNews() {
     this.isLoading = true;
-    this.news = await this.appStore.transportLayer.get('/news');
+    this.news = await this.domainStore.transportLayer.get('/news');
     this.isLoading = false;
   }
   getNews() {
-    return this.appStore.newsStore.news;
+    return this.domainStore.newsStore.news;
   }
   getNewsById(id: number) {
-    if (id && id > 0) return this.appStore.newsStore.news.find((x: NewsItem) => x.id == id);
+    if (id && id > 0) return this.domainStore.newsStore.news.find((x: NewsItem) => x.id == id);
     throw new Error('INVALID ID');
   }
 }

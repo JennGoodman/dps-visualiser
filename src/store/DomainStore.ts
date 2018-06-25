@@ -1,7 +1,7 @@
 import { NewsStore, ContentStore, UserStore } from './';
 import { TransportLayer } from './../models';
 
-export default class AppStore {
+export default class DomainStore {
   newsStore: NewsStore;
   contentStore: ContentStore;
   userStore: UserStore;
